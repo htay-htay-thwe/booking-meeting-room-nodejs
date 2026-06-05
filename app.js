@@ -10,7 +10,7 @@ const userRoutes = require("./routes/users");
 
 const app = express();
 app.use(cors({
-  origin: 'https://booking-meeting-room-react.vercel.app/', // Change this to your actual Vercel URL
+  origin: 'https://booking-meeting-room-react.vercel.app', // Change this to your actual Vercel URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
