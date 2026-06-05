@@ -9,7 +9,11 @@ const testRoutes = require("./routes/test");
 const userRoutes = require("./routes/users");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://booking-meeting-room-react.vercel.app/', // Change this to your actual Vercel URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/api", healthRoutes);
