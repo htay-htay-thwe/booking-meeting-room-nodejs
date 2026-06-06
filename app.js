@@ -14,7 +14,7 @@ app.use(cors({
     'https://booking-meeting-room-react.vercel.app',
     'http://localhost:5173'
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
   credentials: true
 }));
 app.use(express.json());
