@@ -17,13 +17,8 @@ const router = express.Router();
 
 router.get("/bookings", authRequired, async (req, res) => {
   try {
-    let bookings;
 
-    if (req.user.role === "user") {
-      bookings = await listBookingsWithspecificUsers(req.user.id);
-    } else {
-      bookings = await listBookingsWithUsers();
-    }
+    bookings = await listBookingsWithUsers();
 
     const response = bookings.map((booking) => ({
       ...booking,
