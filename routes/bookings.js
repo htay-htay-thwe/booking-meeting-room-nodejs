@@ -13,7 +13,7 @@ const { validateBookingTimes } = require("../services/bookingService");
 
 const router = express.Router();
 
-// 1. GET /bookings - Fetch all bookings with attached user names
+// 1. GET /bookings - Fetch all bookings 
 
 router.get("/bookings", authRequired, async (req, res) => {
   try {

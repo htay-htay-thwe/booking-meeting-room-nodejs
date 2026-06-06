@@ -10,7 +10,6 @@ router.get("/owner/summary", authRequired, requireRole(["owner", "admin"]), asyn
     const bookings = await listBookings();
     const allUsers = await listUsers();
 
-    // 🚀 FILTER OUT THE ADMINS HERE
     const users = allUsers.filter((user) => user.role !== "admin");
 
     const summary = users.map((user) => {
@@ -44,8 +43,7 @@ router.get(
     try {
       const bookings = await listBookings();
       const allUsers = await listUsers();
-
-  
+      
       const users = allUsers.filter((user) => user.role !== "admin");
 
       const grouped = users.map((user) => {
