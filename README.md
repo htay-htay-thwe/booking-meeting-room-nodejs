@@ -27,28 +27,6 @@ newStart < existingEnd AND newEnd > existingStart
 
 ---
 
-## Project Structure
-
-booking-meeting-room-nodejs/
-├── src/
-│   ├── controllers/
-│   │   └── bookingController.js
-│   ├── services/
-│   │   └── bookingService.js
-│   ├── utils/
-│   │   ├── validateBookingTimes.js
-│   │   ├── hasOverlap.js
-│   │   └── formatDate.js
-│   ├── routes/
-│   │   └── bookingRoutes.js
-│   ├── app.js
-│   └── server.js
-├── package.json
-├── .env
-└── README.md
-
----
-
 ## Tech Stack
 
 - Node.js
