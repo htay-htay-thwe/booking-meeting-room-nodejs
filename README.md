@@ -78,7 +78,8 @@ npm install
 
 Create a `.env` file:
 
-PORT=5000
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/
 
 ---
 
@@ -87,7 +88,7 @@ PORT=5000
 npm run dev
 
 Server runs at:
-http://localhost:5000
+http://localhost:4000
 
 ---
 
@@ -116,18 +117,6 @@ POST /api/bookings
 
 ---
 
-### Overlap Response (409)
-
-{
-  "message": "Booking overlaps with existing booking",
-  "overlap": {
-    "startTime": "2026-06-07T10:00:00.000Z",
-    "endTime": "2026-06-07T11:00:00.000Z"
-  }
-}
-
----
-
 ## Error Codes
 
 400 → Invalid input  
@@ -146,15 +135,6 @@ New booking:
 
 ---
 
-## Future Improvements
-
-- Add authentication (JWT)
-- Connect database (MongoDB / MySQL)
-- Calendar UI view
-- Real-time availability check
-- Unit testing (Jest)
-
----
 
 ## Author
 
