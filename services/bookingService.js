@@ -25,8 +25,8 @@ function validateBookingTimes(startTime, endTime, bookings) {
   }
   const overlap = hasOverlap(start.getTime(), end.getTime(), bookings);
   if (overlap) {
-    const formattedStart = new Date(overlap.startTime).toLocaleString("en-US");
-    const formattedEnd = new Date(overlap.endTime).toLocaleString("en-US");
+    const formattedStart = new Date(overlap.startTime).toLocaleString();
+    const formattedEnd = new Date(overlap.endTime).toLocaleString();
 
     return {
       error: `Booking overlaps with existing booking from ${formattedStart} to ${formattedEnd}`,
