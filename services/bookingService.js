@@ -7,7 +7,7 @@ function parseTime(value) {
 }
 
 function hasOverlap(startMs, endMs, bookings) {
-  return bookings.find((booking) => {
+  return bookings.some((booking) => {
     const bookingStart = new Date(booking.startTime).getTime();
     const bookingEnd = new Date(booking.endTime).getTime();
     return startMs < bookingEnd && endMs > bookingStart;
@@ -23,15 +23,8 @@ function validateBookingTimes(startTime, endTime, bookings) {
   if (start.getTime() >= end.getTime()) {
     return { error: "startTime must be before endTime", status: 400 };
   }
-  const overlap = hasOverlap(start.getTime(), end.getTime(), bookings);
-  if (overlap) {
-    const formattedStart = new Date(overlap.startTime).toLocaleString();
-    const formattedEnd = new Date(overlap.endTime).toLocaleString();
-
-    return {
-      error: `Booking overlaps with existing booking from ${formattedStart} to ${formattedEnd}`,
-      status: 409,
-    };
+  if (hasOverlap(start.getTime(), end.getTime(), bookings)) {
+    return { error: "Booking overlaps with existing booking", status: 409 };
   }
   return { start, end };
 }
