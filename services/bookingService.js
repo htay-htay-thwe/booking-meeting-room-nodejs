@@ -25,7 +25,13 @@ function validateBookingTimes(startTime, endTime, bookings) {
   }
   const overlap = hasOverlap(start.getTime(), end.getTime(), bookings);
   if (overlap) {
-    return { error: `Booking overlaps with existing booking from ${overlap.startTime} to ${overlap.endTime}`, status: 409 };
+    const formattedStart = new Date(overlap.startTime).toLocaleString("en-US");
+    const formattedEnd = new Date(overlap.endTime).toLocaleString("en-US");
+
+    return {
+      error: `Booking overlaps with existing booking from ${formattedStart} to ${formattedEnd}`,
+      status: 409,
+    };
   }
   return { start, end };
 }
